@@ -291,42 +291,6 @@ void main() {
 }
 ```
 
-## 🗺️ Future Roadmap
-
-### Version 1.1.0
-- **Named Instances** - Register multiple implementations of the same type
-  ```dart
-  locator.registerSingleton<DatabaseService>(primaryDb, instanceName: 'primary');
-  locator.registerSingleton<DatabaseService>(cacheDb, instanceName: 'cache');
-  ```
-
-### Version 1.2.0  
-- **Async Factories** - Support for asynchronous service creation
-  ```dart
-  locator.registerAsync<ApiService>(() async {
-    final config = await loadConfig();
-    return ApiService(config);
-  });
-  ```
-
-### Version 1.3.0
-- **Lifecycle Hooks** - Custom initialization and disposal logic
-  ```dart
-  locator.registerSingleton<Service>(
-    Service(),
-    onInit: (service) => service.initialize(),
-    onDispose: (service) => service.cleanup(),
-  );
-  ```
-
-### Version 1.4.0
-- **Development Tools** - Optional diagnostics and logging
-  ```dart
-  // Debug mode only
-  locator.enableDiagnostics();
-  locator.printDependencyGraph();
-  ```
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
@@ -354,8 +318,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙋‍♂️ Support
 
-- 📧 **Issues**: [GitHub Issues](https://github.com/yourusername/pure_di/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/yourusername/pure_di/discussions)
+- 📧 **Issues**: [GitHub Issues](https://github.com/suhail7cb/pure_di/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/suhail7cb/pure_di/discussions)
 - ⭐ **Star this repo** if you find it useful!
 
 ---
