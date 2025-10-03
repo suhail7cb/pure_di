@@ -1,8 +1,4 @@
-
-// part of 'pure_di.dart';
-
-
-/// Lazy singleton wrapper that creates instances only when first accessed
+// Lazy singleton wrapper that creates instances only when first accessed
 
 class Lazy<T> {
   T? _instance;

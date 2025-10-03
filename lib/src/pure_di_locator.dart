@@ -29,7 +29,7 @@ class PureDI {
   /// Registers a factory function for creating instances
   void register<T>(T Function() factory) {
     // if (_singletons.containsKey(T) || _factories.containsKey(T)) {
-    if ( _factories.containsKey(T)) {
+    if (_factories.containsKey(T)) {
       throw ServiceAlreadyRegisteredException(T);
     }
     _factories[T] = factory;

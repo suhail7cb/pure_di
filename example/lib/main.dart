@@ -110,17 +110,17 @@ void main() {
 
   // Register a singleton - same instance every time
   locator.registerSingleton<DatabaseService>(
-      DatabaseService('postgresql://localhost:5432/myapp')
+    DatabaseService('postgresql://localhost:5432/myapp'),
   );
 
   // Register with dependency injection - new instance each time
   locator.register<UserRepository>(
-          () => UserRepository(locator.get<DatabaseService>())
+    () => UserRepository(locator.get<DatabaseService>()),
   );
 
   // Register lazy singleton - created only when first accessed
   locator.registerLazySingleton<UserService>(
-          () => UserService(locator.get<UserRepository>())
+    () => UserService(locator.get<UserRepository>()),
   );
 
   // Register factory service - new instance each time
@@ -146,20 +146,20 @@ void main() {
 
   // Register different database configs for each scope
   webScope.registerSingleton<DatabaseService>(
-      DatabaseService('postgresql://web-server:5432/web_db')
+    DatabaseService('postgresql://web-server:5432/web_db'),
   );
 
   backgroundScope.registerSingleton<DatabaseService>(
-      DatabaseService('postgresql://job-server:5432/job_db')
+    DatabaseService('postgresql://job-server:5432/job_db'),
   );
 
   // Each scope has its own instances
   webScope.register<UserRepository>(
-          () => UserRepository(webScope.get<DatabaseService>())
+    () => UserRepository(webScope.get<DatabaseService>()),
   );
 
   backgroundScope.register<UserRepository>(
-          () => UserRepository(backgroundScope.get<DatabaseService>())
+    () => UserRepository(backgroundScope.get<DatabaseService>()),
   );
 
   // Use scoped services
@@ -182,8 +182,12 @@ void main() {
   demo.output('Remaining scopes: ${locator.scopeNames}');
 
   // Check registration status
-  demo.output('Is UserService registered globally? ${locator.isRegistered<UserService>()}');
-  demo.output('Is UserService registered in background scope? ${backgroundScope.isRegistered<UserService>()}');
+  demo.output(
+    'Is UserService registered globally? ${locator.isRegistered<UserService>()}',
+  );
+  demo.output(
+    'Is UserService registered in background scope? ${backgroundScope.isRegistered<UserService>()}',
+  );
 
   demo.output('');
 
@@ -198,9 +202,7 @@ void main() {
   //           () => DatabaseService('postgresql://prod-server:5432/prod_db')
   //   );
   // } else {
-    locator.register<DatabaseService>(
-            () => DatabaseService('sqlite:///dev.db')
-    );
+  locator.register<DatabaseService>(() => DatabaseService('sqlite:///dev.db'));
   // }
 
   // Reset a lazy singleton (force recreation)

@@ -43,7 +43,6 @@ void main() {
    * shared global state in the ServiceLocator singleton.
    */
 
-
   group('ServiceLocator', () {
     setUp(() {
       PureDI.reset();
@@ -322,7 +321,6 @@ void main() {
       final service = DisposableService();
       final lazy = Lazy<DisposableService>(() => service);
 
-      final instance = lazy.value;
       expect(lazy.isInitialized, isTrue);
       expect(service.isDisposed, isFalse);
 

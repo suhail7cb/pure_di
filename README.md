@@ -1,9 +1,5 @@
 # Pure DI
 
-[![Pub Version](https://img.shields.io/pub/v/pure_di)](https://pub.dev/packages/pure_di)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Dart SDK](https://img.shields.io/badge/Dart->=2.17.0-blue.svg)](https://dart.dev)
-
 A lightweight, pure Dart dependency injection library with **zero external dependencies**. Perfect for Dart CLI applications, server-side apps, or any Dart-only environment where you need clean dependency management without the overhead of larger DI frameworks.
 
 ## ✨ Features
