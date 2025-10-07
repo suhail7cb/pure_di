@@ -16,8 +16,7 @@ class ServiceNotRegisteredException implements Exception {
   const ServiceNotRegisteredException(this.serviceType);
 
   @override
-  String toString() =>
-      'Service of type $serviceType is not registered';
+  String toString() => 'Service of type $serviceType is not registered';
 }
 
 /// Thrown when attempting to register a service that is already registered.
@@ -32,8 +31,7 @@ class ServiceAlreadyRegisteredException implements Exception {
   const ServiceAlreadyRegisteredException(this.serviceType);
 
   @override
-  String toString() =>
-      'Service of type $serviceType is already registered';
+  String toString() => 'Service of type $serviceType is already registered';
 }
 
 /// Thrown when trying to access a scope that doesn't exist.
@@ -48,6 +46,5 @@ class ScopeNotFoundException implements Exception {
   const ScopeNotFoundException(this.scopeName);
 
   @override
-  String toString() =>
-      'Scope "$scopeName" not found';
+  String toString() => 'Scope "$scopeName" not found';
 }

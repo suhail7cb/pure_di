@@ -24,7 +24,7 @@ class Scope {
   /// Registers a factory method for type `T` within this scope.
   /// Throws [ServiceAlreadyRegisteredException] if a factory is already registered.
   void register<T>(T Function() factory) {
-    _throwIfDisposed();  // Prevents registration if scope is already disposed
+    _throwIfDisposed(); // Prevents registration if scope is already disposed
 
     if (_factories.containsKey(T)) {
       throw ServiceAlreadyRegisteredException(T);
@@ -36,7 +36,7 @@ class Scope {
   /// Registers a singleton instance of type `T` within this scope.
   /// Throws [ServiceAlreadyRegisteredException] if the type is already registered.
   void registerSingleton<T>(T instance) {
-    _throwIfDisposed();  // Check if scope is still valid
+    _throwIfDisposed(); // Check if scope is still valid
 
     if (_instances.containsKey(T) || _factories.containsKey(T)) {
       throw ServiceAlreadyRegisteredException(T);
@@ -49,7 +49,7 @@ class Scope {
   /// The instance is created only when first accessed via `get<T>()`.
   /// Throws [ServiceAlreadyRegisteredException] if the type is already registered.
   void registerLazySingleton<T>(T Function() factory) {
-    _throwIfDisposed();  // Ensure scope is active
+    _throwIfDisposed(); // Ensure scope is active
 
     if (_instances.containsKey(T) || _factories.containsKey(T)) {
       throw ServiceAlreadyRegisteredException(T);
@@ -63,23 +63,23 @@ class Scope {
   /// - If a factory is registered, it creates and returns a new instance.
   /// Throws [ServiceNotRegisteredException] if the type is not found.
   T get<T>() {
-    _throwIfDisposed();  // Check if scope is usable
+    _throwIfDisposed(); // Check if scope is usable
 
     // First check for registered singleton/lazy singleton
     if (_instances.containsKey(T)) {
       final instance = _instances[T];
 
       if (instance is Lazy<T>) {
-        return instance.value;  // Create and return lazy instance
+        return instance.value; // Create and return lazy instance
       }
 
-      return instance as T;  // Return existing singleton
+      return instance as T; // Return existing singleton
     }
 
     // Check for registered factory
     if (_factories.containsKey(T)) {
       final factory = _factories[T] as T Function();
-      return factory();  // Create and return new instance from factory
+      return factory(); // Create and return new instance from factory
     }
 
     // Service not found
@@ -100,15 +100,15 @@ class Scope {
 
     for (final instance in _instances.values) {
       if (instance is Lazy) {
-        instance.dispose();  // Dispose lazily initialized instance
+        instance.dispose(); // Dispose lazily initialized instance
       } else if (instance is Disposable) {
-        instance.dispose();  // Dispose directly if Disposable
+        instance.dispose(); // Dispose directly if Disposable
       }
     }
 
-    _instances.clear();   // Remove all instances
-    _factories.clear();   // Remove all factories
-    _isDisposed = true;   // Mark scope as disposed
+    _instances.clear(); // Remove all instances
+    _factories.clear(); // Remove all factories
+    _isDisposed = true; // Mark scope as disposed
   }
 
   /// Indicates whether this scope has been disposed.

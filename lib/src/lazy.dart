@@ -18,10 +18,10 @@ class Lazy<T> {
   /// marks it as initialized, and stores the instance internally.
   T get value {
     if (!_isInitialized) {
-      _instance = _factory();     // Create the instance on first access
-      _isInitialized = true;      // Mark as initialized
+      _instance = _factory(); // Create the instance on first access
+      _isInitialized = true; // Mark as initialized
     }
-    return _instance!;            // Return the cached instance
+    return _instance!; // Return the cached instance
   }
 
   /// Returns `true` if the instance has already been created,
@@ -35,10 +35,10 @@ class Lazy<T> {
   /// After disposing, it clears the instance and resets the initialized flag.
   void dispose() {
     if (_isInitialized && _instance is Disposable) {
-      (_instance as Disposable).dispose();  // Call dispose if supported
+      (_instance as Disposable).dispose(); // Call dispose if supported
     }
-    _instance = null;             // Remove reference
-    _isInitialized = false;       // Mark as not initialized
+    _instance = null; // Remove reference
+    _isInitialized = false; // Mark as not initialized
   }
 
   /// Resets the lazy instance.

@@ -1,6 +1,6 @@
 name: pure_di
 description: "A lightweight, pure Dart dependency injection library with lazy singletons and scoped instances. Zero external dependencies."
-version: 0.0.3
+version: 0.0.4
 homepage: "https://github.com/suhail7cb/pure_di"
 
 
