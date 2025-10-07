@@ -299,7 +299,7 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/pure_di.git
+git clone https://github.com/suhail7cb/pure_di.git
 cd pure_di
 
 # Install dependencies
