@@ -8,6 +8,7 @@
 library pure_di;
 
 export 'src/pure_di_locator.dart';
+export 'src/disposable.dart';
 export 'src/scope.dart';
-export 'src/lazy.dart';
 export 'src/exceptions.dart';
+export 'src/lazy.dart';

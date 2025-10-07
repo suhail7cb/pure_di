@@ -2,6 +2,7 @@
 // 'lazy.dart' defines lazy singletons,
 // 'scope.dart' defines scoped service instances,
 // 'exceptions.dart' contains custom exception classes.
+import 'disposable.dart';
 import 'lazy.dart';
 import 'scope.dart';
 import 'exceptions.dart';

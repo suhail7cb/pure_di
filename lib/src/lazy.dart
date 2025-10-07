@@ -1,5 +1,7 @@
 // Lazy singleton wrapper that creates instances only when first accessed
 
+import 'disposable.dart';
+
 class Lazy<T> {
   // Holds the actual instance of type T (nullable until initialized)
   T? _instance;
@@ -47,12 +49,4 @@ class Lazy<T> {
   void reset() {
     dispose();
   }
-}
-
-/// Interface for disposable services.
-///
-/// Implement this on any service class that needs to release
-/// resources when it is no longer needed (e.g., close streams, connections).
-abstract class Disposable {
-  void dispose();
 }
